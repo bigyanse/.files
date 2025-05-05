@@ -33,6 +33,8 @@ return { -- Autocompletion
     --  into multiple repos for maintenance purposes.
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
+    -- "f3fora/cmp-spell",
+    -- "uga-rosa/cmp-dictionary",
   },
   config = function()
     -- See `:help cmp`
@@ -108,6 +110,20 @@ return { -- Autocompletion
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },
+        -- {
+        --   name = "spell",
+        --   option = {
+        --     keep_all_entries = false,
+        --     enable_in_context = function()
+        --       return true
+        --     end,
+        --     preselect_correct_word = true,
+        --   },
+        -- },
+        -- {
+        --   name = "dictionary",
+        --   keyword_length = 2,
+        -- },
       },
     })
   end,

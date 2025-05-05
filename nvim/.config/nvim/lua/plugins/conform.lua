@@ -29,6 +29,7 @@ return { -- Autoformat
       lua = { "stylua" },
       nix = { "nixpkgs-fmt" },
       php = { "phpcbf" },
+      sql = { "sql_formatter" },
     },
   },
 }

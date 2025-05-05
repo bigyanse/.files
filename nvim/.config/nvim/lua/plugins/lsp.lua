@@ -70,7 +70,7 @@ return {
 
     local servers = {
       clangd = {},
-      -- gopls = {},
+      gopls = {},
       pyright = {},
       rust_analyzer = {},
       ts_ls = {},
@@ -86,6 +86,7 @@ return {
       jdtls = {},
       -- hls = {},
       phpactor = {},
+      sqls = {},
     }
 
     require("mason").setup()
@@ -101,6 +102,7 @@ return {
       "phpcbf",
       "php-cs-fixer",
       "prettier",
+      "sql-formatter",
     })
     require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

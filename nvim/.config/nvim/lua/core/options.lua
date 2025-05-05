@@ -3,6 +3,7 @@ vim.g.maplocalleader = ","
 
 vim.g.have_nerd_font = true
 
+vim.opt.syntax = "on"
 vim.opt.termguicolors = true
 
 vim.opt.number = true
@@ -37,6 +38,9 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
+
+-- vim.opt.spell = true
+-- vim.opt.spelllang = "en_us"
 
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
