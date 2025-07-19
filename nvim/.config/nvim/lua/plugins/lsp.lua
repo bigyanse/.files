@@ -66,12 +66,18 @@ return {
     })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+    capabilities = vim.tbl_deep_extend(
+      "force",
+      capabilities,
+      -- require("cmp_nvim_lsp").default_capabilities())
+      require("blink.cmp").get_lsp_capabilities({}, false)
+    )
 
     local servers = {
       clangd = {},
       gopls = {},
-      pyright = {},
+      svelte = {},
+      pylsp = {},
       rust_analyzer = {},
       ts_ls = {},
       lua_ls = {
@@ -79,6 +85,26 @@ return {
           Lua = {
             completion = {
               callSnippet = "Replace",
+            },
+            runtime = {
+              -- Tell the language server which version of Lua you're using
+              -- (most likely LuaJIT in the case of Neovim)
+              version = "LuaJIT",
+            },
+            diagnostics = {
+              -- Get the language server to recognize the `vim` global
+              globals = {
+                "vim",
+                "require",
+              },
+            },
+            workspace = {
+              -- Make the server aware of Neovim runtime files
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+              enable = false,
             },
           },
         },
@@ -103,6 +129,8 @@ return {
       "php-cs-fixer",
       "prettier",
       "sql-formatter",
+      "black",
+      "ruff",
     })
     require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

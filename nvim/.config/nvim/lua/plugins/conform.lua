@@ -30,6 +30,7 @@ return { -- Autoformat
       nix = { "nixpkgs-fmt" },
       php = { "phpcbf" },
       sql = { "sql_formatter" },
+      python = { "ruff", "black" },
     },
   },
 }

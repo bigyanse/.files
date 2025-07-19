@@ -1,5 +1,8 @@
 local map = vim.keymap.set
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 map("n", "<F4>", function()
   if vim.g.presentation_mode then
     vim.g.presentation_mode = false

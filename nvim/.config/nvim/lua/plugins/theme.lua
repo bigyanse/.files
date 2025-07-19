@@ -58,13 +58,6 @@ local theme = {
   tokyonight = {
     "folke/tokyonight.nvim",
     priority = 1000,
-    opts = {
-      style = "night",
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-      },
-    },
     config = function()
       require("tokyonight").setup({
         style = "night",
@@ -83,7 +76,7 @@ local theme = {
       local posterpole = require("posterpole")
 
       posterpole.setup({
-        transparent = false,
+        transparent = true,
         colorless_bg = true, -- grayscale or not
         dim_inactive = false, -- highlight inactive splits
         brightness = 0, -- negative numbers - darker, positive - lighter
@@ -190,6 +183,95 @@ local theme = {
       vim.cmd("colorscheme rose-pine")
     end,
   },
+  kanso = {
+    "webhooked/kanso.nvim",
+    config = function()
+      -- Default options:
+      require("kanso").setup({
+        compile = false, -- enable compiling the colorscheme
+        undercurl = true, -- enable undercurls
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = {},
+        typeStyle = {},
+        disableItalics = false,
+        transparent = true, -- do not set background color
+        dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true, -- define vim.g.terminal_color_{0,17}
+        colors = { -- add/modify theme and palette colors
+          palette = {},
+          theme = { zen = {}, pearl = {}, ink = {}, all = {} },
+        },
+        overrides = function(colors) -- add/modify highlights
+          return {}
+        end,
+        theme = "ink", -- Load "zen" theme
+        background = { -- map the value of 'background' option to a theme
+          -- dark = "ink", -- try "ink" !
+          -- light = "pearl",
+        },
+      })
+
+      -- setup must be called before loading
+      vim.cmd("colorscheme kanso")
+    end,
+  },
+  zenbones = {
+    "zenbones-theme/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
+    -- you can set set configuration options here
+    config = function()
+      vim.g.zenbones_darken_comments = 45
+      vim.g.kanagawabones_transparent_background = true
+      vim.background = "dark"
+      vim.cmd.colorscheme("kanagawabones")
+    end,
+  },
+  kanagawa = {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      -- Default options:
+      require("kanagawa").setup({
+        compile = false, -- enable compiling the colorscheme
+        undercurl = true, -- enable undercurls
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = true, -- do not set background color
+        dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true, -- define vim.g.terminal_color_{0,17}
+        colors = { -- add/modify theme and palette colors
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+        },
+        overrides = function(colors) -- add/modify highlights
+          return {}
+        end,
+        theme = "dragon", -- Load "wave" theme
+        background = { -- map the value of 'background' option to a theme
+          dark = "wave", -- try "dragon" !
+          light = "lotus",
+        },
+      })
+
+      -- setup must be called before loading
+      vim.cmd("colorscheme kanagawa")
+    end,
+  },
+  gruvbox = {
+    "morhetz/gruvbox",
+    config = function()
+      vim.cmd("colorscheme gruvbox")
+    end,
+  },
 }
 
-return theme["tokyonight"]
+return theme["catppuccin"]
