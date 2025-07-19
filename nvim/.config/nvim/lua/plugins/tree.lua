@@ -18,7 +18,7 @@ local plugins = {
       -- add options here
     },
     keys = {
-      { "<leader>ntt", ":NvimTreeToggle<CR>", desc = "NvimTreeToggle" },
+      { "<leader>ntt", ":Neotree toggle<CR>", desc = "Neotree Toggle" },
     },
   },
   nvimtree = {
