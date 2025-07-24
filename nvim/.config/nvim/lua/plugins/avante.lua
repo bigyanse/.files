@@ -17,11 +17,11 @@ return {
   opts = {
     -- add any opts here
     -- for example
-    provider = "copilot",
+    provider = "ollama",
     providers = {
       ollama = {
         endpoint = "http://localhost:11434",
-        model = "qwen2.5-coder:7b",
+        model = "qwen3:8b",
       },
     },
   },

@@ -46,6 +46,17 @@ local plugins = {
       })
     end,
   },
+  oil = {
+    "stevearc/oil.nvim",
+    opts = {},
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    lazy = false,
+    keys = {
+      "<leader>ntt",
+      ":Oil<CR>",
+      desc = "Oil Toggle",
+    },
+  },
 }
 
-return plugins["neotree"]
+return plugins["nvimtree"]
