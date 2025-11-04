@@ -3,6 +3,9 @@ return {
   event = "VimEnter",
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
-    signs = false,
+    signs = true,
+  },
+  keys = {
+    { "<leader>tt", "<cmd>TodoTelescope<cr>", desc = "Search for todo items in project" },
   },
 }
